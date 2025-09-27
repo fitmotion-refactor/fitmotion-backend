@@ -19,7 +19,6 @@ public class ChatMessage {
 
     private Long senderId;
     private Long receiverId;
-    private String senderRole;   // USER / TRAINER
     private String content;
 
     private LocalDateTime timestamp;

@@ -4,6 +4,7 @@ import com.yunsu.fitmotion.websocket.domain.ChatMessage;
 import com.yunsu.fitmotion.websocket.dto.ChatMessageDto;
 import com.yunsu.fitmotion.websocket.service.port.ChatMessageRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ChatServiceImpl implements ChatService {
 
     private final ChatMessageRepository chatMessageRepository;
@@ -21,17 +23,18 @@ public class ChatServiceImpl implements ChatService {
         ChatMessage chatMessage = ChatMessage.builder()
                 .senderId(dto.getSenderId())
                 .receiverId(dto.getReceiverId())
-                .senderRole(dto.getSenderRole())
                 .content(dto.getContent())
                 .timestamp(LocalDateTime.now())
                 .build();
 
         ChatMessage saved = chatMessageRepository.save(chatMessage);
 
+        log.info("채팅 저장 - senderId: {}, receiverId: {}, content: {}",
+                saved.getSenderId(), saved.getReceiverId(), saved.getContent());
+
         return ChatMessageDto.builder()
                 .senderId(saved.getSenderId())
                 .receiverId(saved.getReceiverId())
-                .senderRole(saved.getSenderRole())
                 .content(saved.getContent())
                 .timestamp(saved.getTimestamp().toString())
                 .build();
@@ -43,7 +46,6 @@ public class ChatServiceImpl implements ChatService {
                 .map(msg -> ChatMessageDto.builder()
                         .senderId(msg.getSenderId())
                         .receiverId(msg.getReceiverId())
-                        .senderRole(msg.getSenderRole())
                         .content(msg.getContent())
                         .timestamp(msg.getTimestamp().toString())
                         .build())
