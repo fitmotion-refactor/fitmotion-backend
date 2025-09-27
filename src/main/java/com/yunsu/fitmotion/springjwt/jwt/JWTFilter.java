@@ -3,7 +3,7 @@ package com.yunsu.fitmotion.springjwt.jwt;
 
 import com.yunsu.fitmotion.springjwt.common.Role;
 import com.yunsu.fitmotion.springjwt.dto.CustomUserDetails;
-import com.yunsu.fitmotion.springjwt.entity.UserEntity;
+import com.yunsu.fitmotion.user.infrastructure.UserEntity;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

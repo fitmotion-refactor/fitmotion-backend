@@ -1,4 +1,4 @@
-package com.yunsu.fitmotion.user.response;
+package com.yunsu.fitmotion.user.controller.response;
 
 import lombok.Builder;
 import lombok.Getter;

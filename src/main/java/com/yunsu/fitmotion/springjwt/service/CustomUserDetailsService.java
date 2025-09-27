@@ -2,7 +2,7 @@ package com.yunsu.fitmotion.springjwt.service;
 
 
 import com.yunsu.fitmotion.springjwt.dto.CustomUserDetails;
-import com.yunsu.fitmotion.springjwt.entity.UserEntity;
+import com.yunsu.fitmotion.user.infrastructure.UserEntity;
 import com.yunsu.fitmotion.springjwt.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;

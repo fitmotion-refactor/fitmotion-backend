@@ -1,6 +1,6 @@
 package com.yunsu.fitmotion.springjwt.repository;
 
-import com.yunsu.fitmotion.springjwt.entity.UserEntity;
+import com.yunsu.fitmotion.user.infrastructure.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {

@@ -1,6 +1,6 @@
 package com.yunsu.fitmotion.springjwt.dto;
 
-import com.yunsu.fitmotion.springjwt.entity.UserEntity;
+import com.yunsu.fitmotion.user.infrastructure.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
