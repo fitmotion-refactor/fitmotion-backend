@@ -1,5 +1,6 @@
 package com.yunsu.fitmotion.websocket.domain;
 
+import com.yunsu.fitmotion.user.infrastructure.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,9 +18,17 @@ public class ChatMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long messageId;
 
-    private Long senderId;
-    private Long receiverId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sender_id")
+    private UserEntity sender;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "receiver_id")
+    private UserEntity receiver;
+
     private String content;
 
     private LocalDateTime timestamp;
+
+    private boolean read; // 읽음 여부
 }
